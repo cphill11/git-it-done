@@ -1,5 +1,22 @@
 # git-it-done
 
+## Purpose
+Describe the purpose of the project
+
+
+## Built With
+* HTML
+* CSS
+* jQuery
+* Bootstrap
+
+## Website
+
+
+## Image
+
+# Made By:
+Criste Phillips
 
 
 ## Website
