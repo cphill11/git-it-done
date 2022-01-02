@@ -1,7 +1,26 @@
 var repoNameEl = document.querySelector("repo-name");
 var issueContainerEl = document.querySelector("#issues-container");
 var limitWarningEl = document.querySelector("#limit-warning");
-var repoNameEl = document.querySelector("#repo-name");
+
+// function created to extract query value from query string in API call fxn 'getRepoIssues()'
+var getRepoName = function() {
+    // uses location & split() method to extract repo name from query string
+    var queryString = document.location.search;
+
+    // splitting on the ("="") creates an array w/ 2 elements, use [1] to indicate 2nd element w/ index notation (as bracket notation starts at zero)
+    var RepoName = queryString.split("=")[1];
+
+    // conditional statement that checks if repoName exists
+    if (repoName) {
+        // display repo name on the page
+        repoNameEl.textContent = repoName;
+
+        getRepoIssues(repoName);
+    } else {
+        // if no repo was given redirect to the homepage
+        document.location.replace("./index.html");
+    }
+};
 
 var getRepoIssues = function(repo) {
     // format the github api url
@@ -27,25 +46,7 @@ var getRepoIssues = function(repo) {
     });
 };
 
-// function created to extract query value from query string in API call fxn 'getRepoIssues()'
-var getRepoName = function() {
-    // uses location & split() method to extract repo name from query string
-    var queryString = document.location.search;
 
-    // splitting on the ("="") creates an array w/ 2 elements, use [1] to indicate 2nd element w/ index notation (as bracket notation starts at zero)
-    var RepoName = queryString.split("=")[1];
-
-    // conditional statement that checks if repoName exists
-    if (repoName) {
-        // display repo name on the page
-        repoNameEl.textContent = repoName;
-
-        getRepoIssues(repoName);
-    } else {
-        // if no repo was given redirect to the homepage
-        document.location.replate("./index.html");
-    }
-}
 
 // add function that accepts issues as a parameter
 var displayIssues = function(issues) {

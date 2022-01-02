@@ -32,12 +32,12 @@ var getUserRepos = function(user) {
       if (response.ok) {
         console.log(response);
         response.json().then(function(data) {
-          // send response dtat from getUsersRepos() to displayRepos() when response data is converted to JSON
+          // send response data from getUsersRepos() to displayRepos() when response data is converted to JSON
           console.log(data);
           displayRepos(data, user);
         });
       } else {
-        alert("Error: GitHub User Not Found");
+        alert("Error: " + response.statusText);
       }
     })
     .catch(function(error) {
