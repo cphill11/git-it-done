@@ -22,3 +22,4 @@ Criste Phillips
 ## Website
 https://cphill11.github.io/git-it-done/
 
+https://github.com/cphill11/git-it-done.git
